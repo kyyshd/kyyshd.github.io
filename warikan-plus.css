@@ -1,27 +1,27 @@
-/*  基本レイアウト（カードを等幅で自動段組）  */
+
 .cards {
-  /* コンテナ幅とセンタリング */
+
   max-width: 1100px;
   margin: 0 auto;
   padding: 16px;
 
-  /* カードの等幅グリッド */
+
   display: grid;
-  /* 280px以上の横幅を確保しつつ、空きは1frで均等配分 */
+  
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px; /* カード間の余白 */
-  align-items: stretch; /* 高さを揃えたい場合に有効（子要素が伸びる） */
+  gap: 16px; 
+  align-items: stretch; 
 }
 
-/*  カード本体  */
+
 .card {
-  border: 1px solid #e5e7eb;            /* 薄い枠線 */
+  border: 1px solid #e5e7eb;            
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.04); /* ほんのり影 */
+  box-shadow: 0 2px 8px rgba(0,0,0,.04); 
   background: #fff;
 
-  /* 内容の縦並び */
+  
   display: flex;
   flex-direction: column;
 }
@@ -31,13 +31,13 @@
   margin: 0 0 12px;
 }
 
-/*  フォーム内のフィールド  */
+
 .form {
   display: grid;
   gap: 12px;
 }
 
-/* ラベルと入力を縦積み */
+
 .field {
   display: grid;
   gap: 6px;
@@ -51,13 +51,13 @@ label {
 input,
 textarea,
 select {
-  width: 100%;                 /* フィールド幅をカード幅に合わせる */
+  width: 100%;                 
   padding: 10px 12px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   font: inherit;
   background: #fff;
-  box-sizing: border-box;      /* 枠線/パディングを幅計算に含める */
+  box-sizing: border-box;      
 }
 
 input:focus,
@@ -68,7 +68,7 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(59,130,246,.15);
 }
 
-/*  ボタン  */
+
 .btn {
   margin-top: 8px;
   padding: 10px 14px;
@@ -84,7 +84,7 @@ select:focus {
   filter: brightness(1.05);
 }
 
-/*  スマホ調整  */
+
 @media (max-width: 640px) {
   .cards {
     gap: 12px;
@@ -98,7 +98,7 @@ select:focus {
   }
 }
 
-/*  結果  */
+
 .result {
   font-size: .9rem;
   color: #272e39;
