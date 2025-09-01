@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    <title>割り勘担当</title>
+    <link rel="stylesheet" type="text/css" href="warikan-plus.css">
+  </head>
+  <body>
+
+<div class="cards">
+  <section class="card">
+    <h2 class="card-title">割り勘メニュー</h2>
+      <button onclick="location.href='#byodo'" class="btn">平等割り勘</button>
+      <button onclick="location.href='#dankai'" class="btn">段階的割合設定割り勘</button>
+      <button onclick="location.href='#sagaku'" class="btn">差額指定割り勘</button>
+      <button type="location.href='#teigakukojo'" class="btn">定額の人がいる割り勘</button>
+  </section>
+
+  <section class="card" id="warikan0">
+    <h2 class="card-title" a id="byodo">平等割り勘</h2>
+    <form class="form">
+      <div class="field">
+        <label for="gokei">合計額</label>
+        <input id="gokei" type="tel" />
+      </div>
+      <div class="field">
+        <label for="sankaninzu">参加人数</label>
+        <input id="sankaninzu" type="number" />
+      </div>
+      <button type="button" onclick="calcWarikan()" class="btn" id="btn0">計算</button>
+      <div class="result" id="result">一人当たり金額</div>
+    </form>
+  </section>
+
+<section class="card" id="warikan1">
+  <h2 class="card-title" id="dankai">段階的割合設定割り勘</h2>
+  <form class="form">
+    <div class="field">
+      <label for="gokei1">合計額</label>
+      <input id="gokei1" type="tel" />
+    </div>
+    <div class="field">
+      <label for="sankaninzu1">参加人数</label>
+      <input id="sankaninzu1" type="number" />
+    </div>
+    <div class="field">
+      <label for="eraihito">エライ人の人数</label>
+      <input id="eraihito" type="number" />
+    </div>
+    <div class="field">
+      <label for="chugurai">中ぐらいの人の人数</label>
+      <input id="chugurai" type="number" />
+    </div>
+    <div class="field">
+      <label for="wariai">差をつける割合</label>
+      <input id="wariai" type="number" />
+    </div>
+    <button type="button" onclick="calcDankaiWariai()" class="btn">計算</button>
+    <div class="result" id="result1">エライ人の負担額</div>
+    <div class="result" id="result2">中ぐらいの人の負担額</div>
+    <div class="result" id="result3">ヒラの負担額</div>
+  </form>
+</section>
+
+  <section class="card" id="warikan2">
+    <h2 class="card-title" a id="sagaku">差額指定割り勘</h2>
+    <form class="form">
+      <div class="field">
+        <label for="gokei2">合計額</label>
+        <input id="gokei2" type="tel" />
+      </div>
+      <div class="field">
+        <label for="sankaninzu2">参加人数</label>
+        <input id="sankaninzu2" type="number" />
+      </div>
+      <div class="field">
+        <label for="waribikigaku">少ない負担額の人の割引額</label>
+        <input id="waribikigaku" type="tel" />
+      </div>
+            <div class="field">
+        <label for="shogakufutan">少ない負担額の人の人数</label>
+        <input id="shogakufutan" type="number" />
+      </div>
+      <button type="button" onclick="calcWaribiki()" class="btn" id="btn2">計算</button>
+    <div  class="result" id="result4">酒を沢山飲んだ人の負担額</div>
+    <div class="result" id="result5">そうでもない人の負担額</div>
+    </form>
+  </section>
+
+    <section class="card" id="warikan3">
+    <h2 class="card-title" a id="teigakukojo">定額の人がいる割り勘</h2>
+    <form class="form">
+      <div class="field">
+        <label for="gokei3">合計額</label>
+        <input id="gokei3" type="tel" />
+      </div>
+      <div class="field">
+        <label for="sankaninzu3">参加人数</label>
+        <input id="sankaninzu3" type="number" />
+      </div>
+      <div class="field">
+        <label for="teigaku">定額の人の負担額</label>
+        <input id="teigaku" type="tel" />
+      </div>
+        <div class="field">
+        <label for="teigakufutan">定額の人の人数</label>
+        <input id="teigakufutan" type="number" />
+      </div>
+      <button type="button" onclick="calcTeigaku()" class="btn" id="btn3">計算</button>
+      <div class="result" id="result6">他の人の負担額</div>
+    </form>
+  </section>
+</div>
+
+<script>
+//形式平等
+function calcWarikan() {
+  const gokei = Number(document.getElementById("gokei").value);
+  const sankaninzu = Number(document.getElementById("sankaninzu").value);
+  const kintowari = document.getElementById("result");
+
+  kintowari.innerHTML = "一人当たり　" + Math.floor(gokei / sankaninzu) + "円";
+}
+//実質平等
+function calcDankaiWariai() {
+  const gokei       = Number(document.getElementById("gokei1").value);
+  const sankaninzu  = Number(document.getElementById("sankaninzu1").value);
+  const eraihitoEl  = document.getElementById("eraihito");
+  const chuguraiEl  = document.getElementById("chugurai");
+  const wariai      = Number(document.getElementById("wariai").value);
+
+  const eraihitoEmpty = eraihitoEl.value.trim() === "";
+  const chuguraiEmpty = chuguraiEl.value.trim() === "";
+
+  const eraihito = eraihitoEmpty ? 0 : Number(eraihitoEl.value);
+  const chugurai = chuguraiEmpty ? 0 : Number(chuguraiEl.value);
+
+  const eraihitogaku = document.getElementById("result1");
+  const chuguraigaku = document.getElementById("result2");
+  const hiragaku     = document.getElementById("result3");
+
+  const cwariai = 1 + (wariai/10);
+  const ewariai = cwariai + (wariai/10);
+  const wariaigokei = ewariai*eraihito + cwariai*chugurai + (sankaninzu-(eraihito+chugurai));
+
+  if (!eraihitoEmpty) {
+    eraihitogaku.innerHTML = "エライ人負担額 " + Math.floor(gokei/wariaigokei*ewariai) + "円";
+  }
+  if (!chuguraiEmpty) {
+    chuguraigaku.innerHTML = "中ぐらいの人負担額 " + Math.floor(gokei/wariaigokei*cwariai) + "円";
+  }
+  hiragaku.innerHTML = "ヒラ負担額 " + Math.floor(gokei/wariaigokei) + "円";
+}
+
+//差額指定
+function calcWaribiki(){
+  const gokei2 = Number(document.getElementById("gokei2").value);
+  const sankaninzu2 = Number(document.getElementById("sankaninzu2").value);
+  const waribikigaku = Number(document.getElementById("waribikigaku").value);
+  const shogakufutan = Number(document.getElementById("shogakufutan").value);
+  const kogakufutan = sankaninzu2 - shogakufutan;
+  const kogakufutangaku = document.getElementById("result4");
+  const shogakufutangaku = document.getElementById("result5");
+  const sukoshi = Math.floor((gokei2-waribikigaku * shogakufutan)/sankaninzu2);
+  const takusan = sukoshi + waribikigaku;
+
+  kogakufutangaku.innerHTML = "酒を沢山飲んだ人の負担額　" + takusan + "円";
+  shogakufutangaku.innerHTML = "そうでもない人の負担額　" + sukoshi + "円";
+
+}
+
+// 固定金額を支払う人がいる場合
+function calcTeigaku(){
+  const gokei3 = Number(document.getElementById("gokei3").value);
+  const sankaninzu3 = Number(document.getElementById("sankaninzu3").value);
+  const teigaku = Number(document.getElementById("teigaku").value);
+  const teigakufutan = Number(document.getElementById("teigakufutan").value);
+  const teigakuigai = document.getElementById("result6");
+  const teigakuTotal = teigaku * teigakufutan;
+  const remainPeople = sankaninzu3 - teigakufutan;
+  const remainTotal = gokei3 - teigakuTotal;
+  const remainPay = Math.floor(remainTotal / remainPeople);
+
+  teigakuigai.innerHTML ="他の人の負担額：" + remainPay + "円";
+
+}
+
+</script>
+</body>
+</html>
