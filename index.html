@@ -9,7 +9,7 @@
   <body>
 
 <div class="cards">
-  <section class="card">
+  <section class="card" id="warikanmenu">
     <h2 class="card-title">割り勘担当　メニュー</h2>
       <button onclick="location.href='#byodo'" class="btn">平等割り勘</button>
       <button onclick="location.href='#dankai'" class="btn">段階的割合設定割り勘</button>
@@ -31,6 +31,8 @@
       <button type="button" onclick="calcWarikan()" class="btn" id="btn0">計算</button>
       <div class="result" id="result">一人当たり金額</div>
       <div class="result" id="amari1">余り</div>
+      <button onclick="location.href='#byodo'" class="btn">平等割り勘</button>
+      <button onclick="location.href='#warikanmenu'" class="btn2">メニューへ</button>
     </form>
   </section>
 
@@ -62,6 +64,7 @@
     <div class="result" id="result2">中ぐらいの人の負担額</div>
     <div class="result" id="result3">ヒラの負担額</div>
     <div class="result" id="amari2">余り</div>
+    <button onclick="location.href='#warikanmenu'" class="btn2">メニューへ</button>
   </form>
 </section>
 
@@ -88,6 +91,7 @@
     <div  class="result" id="result4">酒を沢山飲んだ人の負担額</div>
     <div class="result" id="result5">そうでもない人の負担額</div>
     <div class="result" id="amari3">余り</div>
+    <button onclick="location.href='#warikanmenu'" class="btn2">メニューへ</button>
     </form>
   </section>
 
@@ -113,6 +117,7 @@
       <button type="button" onclick="calcTeigaku()" class="btn" id="btn3">計算</button>
       <div class="result" id="result6">他の人の負担額</div>
       <div class="result" id="amari4">余り</div>
+      <button onclick="location.href='#warikanmenu'" class="btn2">メニューへ</button>
     </form>
   </section>
 </div>
