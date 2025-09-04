@@ -10,6 +10,7 @@ function calcWarikan() {
 
   amari1.innerHTML = "余り　" +( gokei - hitoriatari*sankaninzu ) + "円";
 }
+
 //実質平等
 function calcDankaiWariai() {
   const gokei1      = Number(document.getElementById("gokei1").value);
