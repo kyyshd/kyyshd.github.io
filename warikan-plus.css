@@ -84,18 +84,6 @@ select:focus {
   filter: brightness(1.05);
 }
 
-.btn2 {
-  margin-top: 8px;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 8px;
-  background: #8c8b8b;
-  color: #111827;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-
 @media (max-width: 640px) {
   .cards {
     gap: 12px;
