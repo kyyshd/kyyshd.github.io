@@ -43,7 +43,7 @@ function calcDankaiWariai() {
     chuguraigaku.innerHTML = "中ぐらいの人負担額 " + cgaku + "円";
   }
   const hgaku = Math.floor(gokei1/wariaigokei);
-  hiragaku.innerHTML = "ヒラ負担額 " + Math.floor(gokei/wariaigokei) + "円";
+  hiragaku.innerHTML = "ヒラ負担額 " + Math.floor(gokei1/wariaigokei) + "円";
   amari2.innerHTML = "余り　" + gokei1 -(egaku*eraihito+cgaku*chugurai+hgaku*(sankaninzu1-eraihito-chugurai))+ "円";
 }
 
