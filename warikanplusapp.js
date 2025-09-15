@@ -14,7 +14,7 @@ function calcWarikan() {
 //実質平等
 function calcDankaiWariai() {
   const gokei1      = Number(document.getElementById("gokei1").value);
-  const sankaninzu  = Number(document.getElementById("sankaninzu1").value);
+  const sankaninzu1  = Number(document.getElementById("sankaninzu1").value);
   const eraihitoEl  = document.getElementById("eraihito");
   const chuguraiEl  = document.getElementById("chugurai");
   const wariai      = Number(document.getElementById("wariai").value);
@@ -32,7 +32,7 @@ function calcDankaiWariai() {
 
   const cwariai = 1 + (wariai/10);
   const ewariai = cwariai + (wariai/10);
-  const wariaigokei = ewariai*eraihito + cwariai*chugurai + (sankaninzu-(eraihito+chugurai));
+  const wariaigokei = ewariai*eraihito + cwariai*chugurai + (sankaninzu1-(eraihito+chugurai));
 
   if (!eraihitoEmpty) {
     const egaku = Math.floor(gokei1/wariaigokei*ewariai);
